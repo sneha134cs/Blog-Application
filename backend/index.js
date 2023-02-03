@@ -12,6 +12,6 @@ mongoose.connect(process.env.MONGO_URL, {
 })
 .then(console.log("Connected to MongoDb"))
 .catch((err) => console.log(err));
-app.listen("5000",()=>{
+app.listen(process.env.PORT,()=>{
     console.log("Backend is running")
 });
