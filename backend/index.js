@@ -24,15 +24,14 @@ destination:(req,file,cb) =>{
   cb(null,"images");
 }, 
 filename: (req,file,cb) =>{
-  cb(null,"hello.jpeg");
-}
+  cb(null,"new.jpg");
+},
 });
-
 
 const upload = multer({storage:storage});
 app.post("/api/upload", upload.single("file"),(req,res) => {
-  res,status(200).json("File has been uploaded");
-})
+  res.status(200).json("File has been uploaded");
+});
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
