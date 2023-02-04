@@ -1,5 +1,6 @@
 import TopBar from "./components/topbar/TopBar";
-import Single from "./pages/single/Single";
+//import Single from "./pages/single/Single";
+import Write from "./pages/write/Write";
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
 		<>
 			<div className="App">
 				<TopBar />
-			    <Single/>
+			    <Write/>
 			</div>
 		</>
 	);
