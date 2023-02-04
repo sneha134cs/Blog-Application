@@ -6,7 +6,7 @@ export default function Write() {
         <form className="writeForm">
             <div className="writeFormGroup">
                 <input type="file" id="fileInput"/>
-                <input type="text" placeholde="Title" />
+                <input type="text" placeholder="Title" />
             </div>
         </form>
     </div>
