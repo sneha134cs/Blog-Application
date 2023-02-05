@@ -22,7 +22,7 @@ export default function register() {
 				<input
 					className="registerInput"
 					type="password"
-					placeholder="Enter your email..."
+					placeholder="Enter new password..."
 				/>
 				<button className="registerButton">Register</button>
 			</form>
