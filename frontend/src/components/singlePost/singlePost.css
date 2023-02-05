@@ -2,16 +2,16 @@
     flex:9;
 }
 
-.singlePostImg{
-    Height:90%;
-    width: 100%;
-    border-radius:5px;
-    object-fit:cover;
-}
-
 .singlePostWrapper{
     padding:20px;
     padding-right:0;
+}
+
+.singlePostImg{
+    width: 100%;
+    Height:300px; 
+    border-radius:5px;
+    object-fit:cover;
 }
 
 .singlePostTitle{
@@ -37,7 +37,7 @@
 }
 
 .singlePostIcon:last-child{
-    color:rgb(153, 32, 72);
+    color: tomato;
 }
 
 .singlePostInfo{
