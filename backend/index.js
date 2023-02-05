@@ -24,7 +24,7 @@ destination:(req,file,cb) =>{
   cb(null,"images");
 }, 
 filename: (req,file,cb) =>{
-  cb(null,"new.jpg");
+  cb(null,req.body.name);
 },
 });
 
