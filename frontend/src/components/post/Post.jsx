@@ -5,7 +5,7 @@ export default function Post() {
     <div className="post">
         <img
         className="postImg"
-          src="https://neilpatel.com/wp-content/uploads/2017/09/blog-post-image-guide.jpg"
+          src="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           alt=""
         />
         <div className="postInfo">
@@ -13,7 +13,7 @@ export default function Post() {
              <span className="postCat">Music</span>
              <span className="postCat">Life</span>   
            </div> 
-           <span className="postTitle">Lorem tempora non! Perferendis itaque magnam ?</span>
+           <span className="postTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
            <hr/>
            <span className="postDate">1 hour ago</span>
         </div>
