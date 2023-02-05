@@ -12,13 +12,13 @@
 
 .headerTitleSmall{
     position: absolute;
-    top: 18%;
+    top: 16%;
     font-size: 20px;
 }
 
 .headerTitleLarge{
     position: absolute;
-    top:20%;
+    top:18%;
     font-size: 100px;
 }
 
