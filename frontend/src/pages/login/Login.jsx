@@ -5,22 +5,21 @@ import { Context } from "../../context/Context";
 import "./login.css";
 
 export default function Login() {
-
 	const userRef = useRef();
 	const passwordRef = useRef();
-	const { dispatch,isFetching } = useContext(Context);
+	const { dispatch, isFetching } = useContext(Context);
 
-	const handleSubmit = async (e)=>{
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		dispatch({type:"LOGIN_START"});
-		try{
-			const res = await axios.post("/auth/login",{
+		dispatch({ type: "LOGIN_START" });
+		try {
+			const res = await axios.post("/auth/login", {
 				username: userRef.current.value,
 				password: passwordRef.current.value,
 			});
-			dispatch({type:"LOGIN_SUCCESS",payload: res.data });
-		}catch(err){
-			dispatch({type:"LOGIN_FAILURE" });
+			dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+		} catch (err) {
+			dispatch({ type: "LOGIN_FAILURE" });
 		}
 	};
 
@@ -42,7 +41,13 @@ export default function Login() {
 					placeholder="Enter your password..."
 					ref={passwordRef}
 				/>
-				<button className="loginButton" type="submit" disabled={isFetching}>Login</button>
+				<button
+					className="loginButton"
+					type="submit"
+					disabled={isFetching}
+				>
+					Login
+				</button>
 			</form>
 			<button className="loginRegisterButton">
 				<Link className="link" to="/register">
