@@ -45,8 +45,7 @@ export default function Settings() {
 	const handleDelete = async () => {
 		try {
 			await axios.delete("/users/" + user._id, {
-				userId: user._id,
-				username: user.username,
+				data: { userId: user._id, username: user.username },
 			});
 			dispatch({ type: "LOGOUT" });
 		} catch (err) {}
