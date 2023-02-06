@@ -33,6 +33,7 @@ export default function Login() {
 					type="text"
 					placeholder="Enter your username..."
 					ref={userRef}
+					autoFocus
 				/>
 				<label>Password</label>
 				<input
