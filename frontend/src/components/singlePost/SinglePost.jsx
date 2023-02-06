@@ -8,6 +8,7 @@ import Categories from "../categories/Categories";
 export default function SinglePost() {
 	const location = useLocation();
 	const path = location.pathname.split("/")[2];
+
 	const [post, setPost] = useState({});
 	const PF = "http://localhost:5000/images/";
 	const { user } = useContext(Context);
@@ -23,7 +24,7 @@ export default function SinglePost() {
 			setDesc(res.data.desc);
 		};
 		getPost();
-	}, [path]);
+	}, [path, post]);
 
 	const handleDelete = async () => {
 		try {
@@ -55,11 +56,9 @@ export default function SinglePost() {
 						className="singlePostImg"
 					/>
 				)}
-
 				<div className="categories">
-					<Categories categories={post.categories}/>
+					<Categories post={post} mode={updateMode} />
 				</div>
-
 				{updateMode ? (
 					<input
 						type="text"
@@ -85,6 +84,7 @@ export default function SinglePost() {
 						)}
 					</h1>
 				)}
+
 				<div className="singlePostInfo">
 					<span className="singlePostAuthor">
 						Author:

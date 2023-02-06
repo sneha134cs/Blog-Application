@@ -1,6 +1,9 @@
 import "./categories.css";
+import { useState } from "react";
+import Category from "../category/Category";
+import SelectCategory from "../selectCategory/SelectCategory";
 
-export default function Categories({ categories }) {
+export default function Categories({ post, mode }) {
 	return (
 		<div className="categories">
 			{categories.map((category) => (
