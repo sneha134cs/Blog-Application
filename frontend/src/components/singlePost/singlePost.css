@@ -16,6 +16,10 @@
   object-fit: cover;
 }
 
+.categories{
+  display: flex;
+}
+
 .singlePostTitle {
   text-align: center;
   margin: 10px;

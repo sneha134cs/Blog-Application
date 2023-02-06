@@ -1,0 +1,27 @@
+.categories{
+    padding: 10px;
+    display: flex;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    background-color: #be9656;
+    color: rgb(255, 251, 251);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.name{
+    margin-right: 5px;
+    font-family: "Josefin Sans", sans-serif;
+	font-size: 14px;
+    font-weight: 400;
+}
+
+.categoryRemove{
+    font-size: 13px;
+    cursor: pointer;
+}
