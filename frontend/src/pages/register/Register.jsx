@@ -34,6 +34,7 @@ export default function Register() {
 					type="text"
 					placeholder="Enter your username..."
 					onChange={(e) => setUsername(e.target.value)}
+					autoFocus
 				/>
 				<label>Email</label>
 				<input

@@ -43,7 +43,7 @@ router.delete("/:id", async (req, res) => {
 			res.status(404).json("User not found!");
 		}
 	} else {
-		res.status(401).json("You can delete only on your account!");
+		res.status(401).json("You can delete only your account!");
 	}
 });
 
