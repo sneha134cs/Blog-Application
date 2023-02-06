@@ -15,7 +15,8 @@ export default function Category({ category, mode }) {
 			setPost(res.data);
 		};
 		getPost();
-	}, []);
+		console.log("path")
+	}, [path]);
 
 	const handleRemove = async () => {
 		try {
