@@ -8,6 +8,7 @@ export default function Category({ category, mode }) {
 	const path = location.pathname.split("/")[2];
 
 	const [post, setPost] = useState({});
+	const [visible,setVisible] = useState(true)
 
 	useEffect(() => {
 		const getPost = async () => {
@@ -18,6 +19,7 @@ export default function Category({ category, mode }) {
 	}, [path]);
 
 	const handleRemove = async () => {
+		
 		try {
 			await axios.put(`/posts/${post._id}`, {
 				username: post.username,
@@ -25,13 +27,14 @@ export default function Category({ category, mode }) {
 					(arrayItem) => arrayItem !== category
 				),
 			});
+			setVisible(false)
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
 	return (
-		<div className="category">
+		 visible && (<div className="category">
 			<span className="name">{category}</span>
 			{mode && (
 				<i
@@ -39,6 +42,6 @@ export default function Category({ category, mode }) {
 					onClick={handleRemove}
 				></i>
 			)}
-		</div>
+		</div>)
 	);
 }
