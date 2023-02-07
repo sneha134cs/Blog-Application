@@ -9,6 +9,7 @@ export default function Write() {
 	const [desc, setDesc] = useState("");
 	const [file, setFile] = useState(null);
 	const [categories, setCategories] = useState([]);
+	const [selectedCat, setSelectedCat] = useState([]);
 	const { user } = useContext(Context);
 
 	useEffect(() => {
@@ -27,6 +28,7 @@ export default function Write() {
 			username: user.username,
 			title,
 			desc,
+			categories: selectedCat
 		};
 		if (file) {
 			const data = new FormData();
@@ -72,7 +74,11 @@ export default function Write() {
 								value: opt,
 							}))}
 							isMulti
-							onChange={(opt) => console.log(opt)}
+							onChange={(opt) =>
+								setSelectedCat(
+									Array.from(opt, (op) => op.label)
+								)
+							}
 						/>
 					</div>
 					<input
