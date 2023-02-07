@@ -16,18 +16,12 @@ export default function SinglePost() {
 	const [desc, setDesc] = useState("");
 	const [updateMode, setUpdateMode] = useState(false);
 
-	const compareArrays = (a, b) => {
-		return JSON.stringify(a) === JSON.stringify(b);
-	};
-
 	useEffect(() => {
 		const getPost = async () => {
 			const res = await axios.get("/posts/" + path);
-			if (!compareArrays(post.categories, res.data.categories) || JSON.stringify(post) === "{}")
-				setPost(res.data);
-			if (title === "") setTitle(res.data.title);
-			if (desc === "") setDesc(res.data.desc);
-			console.log(post.categories);
+			setPost(res.data);
+			setTitle(res.data.title);
+			setDesc(res.data.desc);
 		};
 		getPost();
 	}, [path]);
