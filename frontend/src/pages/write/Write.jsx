@@ -1,13 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import Select from "react-select";
 
 export default function Write() {
 	const [title, setTitle] = useState("");
 	const [desc, setDesc] = useState("");
 	const [file, setFile] = useState(null);
+	const [categories, setCategories] = useState([]);
 	const { user } = useContext(Context);
+
+	useEffect(() => {
+		try {
+			const getCategories = async () => {
+				const res = await axios.get("/categories");
+				setCategories(Array.from(res.data, (r) => r.name));
+			};
+			getCategories();
+		} catch (err) {}
+	}, []);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -46,18 +58,29 @@ export default function Write() {
 					<label htmlFor="fileInput">
 						<i class="writeIcon fa-solid fa-plus"></i>
 					</label>
+
 					<input
 						type="file"
 						id="fileInput"
 						style={{ display: "none" }}
 						onChange={(e) => setFile(e.target.files[0])}
 					/>
+					<div className="catInput">
+						<Select
+							options={categories.map((opt) => ({
+								label: opt,
+								value: opt,
+							}))}
+							isMulti
+							onChange={(opt) => console.log(opt)}
+						/>
+					</div>
 					<input
 						type="text"
 						placeholder="Title"
 						className="writeInput"
 						autoFocus={true}
-						onChange={e=> setTitle(e.target.value)}
+						onChange={(e) => setTitle(e.target.value)}
 					/>
 				</div>
 				<div className="writeFormGroup">
@@ -65,7 +88,7 @@ export default function Write() {
 						placeholder="Write your story..."
 						type="text"
 						className="writeInput writeText"
-						onChange={e=> setDesc(e.target.value)}
+						onChange={(e) => setDesc(e.target.value)}
 					></textarea>
 				</div>
 				<button className="writeSubmit" type="submit">
