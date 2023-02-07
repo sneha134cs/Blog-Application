@@ -28,7 +28,7 @@ export default function Write() {
 			username: user.username,
 			title,
 			desc,
-			categories: selectedCat
+			categories: selectedCat,
 		};
 		if (file) {
 			const data = new FormData();
@@ -57,18 +57,20 @@ export default function Write() {
 			)}
 			<form className="writeForm" onSubmit={handleSubmit}>
 				<div className="writeFormGroup">
-					<label htmlFor="fileInput">
-						<i class="writeIcon fa-solid fa-plus"></i>
-					</label>
-
-					<input
-						type="file"
-						id="fileInput"
-						style={{ display: "none" }}
-						onChange={(e) => setFile(e.target.files[0])}
-					/>
 					<div className="catInput">
+						<label htmlFor="fileInput">
+							<i class="writeIcon fa-solid fa-plus"></i>
+						</label>
+
+						<input
+							type="file"
+							id="fileInput"
+							style={{ display: "none" }}
+							onChange={(e) => setFile(e.target.files[0])}
+						/>
 						<Select
+							className="react-select-container"
+							classNamePrefix="react-select"
 							options={categories.map((opt) => ({
 								label: opt,
 								value: opt,
