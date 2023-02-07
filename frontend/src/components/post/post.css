@@ -42,6 +42,14 @@
 	margin-top: 15px;
 }
 
+.postUser{
+	font-family: "Lora", serif;
+	font-style: italic;
+	font-size: 14px;
+	color: #c07d1a;
+	margin-top: 15px;
+}
+
 .postDesc {
 	font-family: "Varela Round", sans-serif;
 	font-size: 14px;

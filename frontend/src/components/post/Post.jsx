@@ -25,6 +25,9 @@ export default function Post({ post }) {
 				<span className="postDate">
 					{new Date(post.createdAt).toDateString()}
 				</span>
+				<Link className="link" to={`/?user=${post.username}`}>
+					<span className="postUser">{post.username}</span>
+				</Link>
 			</div>
 			<p className="postDesc">{post.desc}</p>
 		</div>
