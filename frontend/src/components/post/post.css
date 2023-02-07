@@ -39,6 +39,14 @@
 	font-style: italic;
 	font-size: 13px;
 	color: #999;
+	margin-top: 0px;
+}
+
+.postUser{
+	font-family: "Lora", serif;
+	font-style: italic;
+	font-size: 14px;
+	color: #c07d1a;
 	margin-top: 15px;
 }
 
