@@ -6,9 +6,9 @@ import { Context } from "../../context/Context";
 
 export default function SideBar() {
 	const [categories, setCategories] = useState([]);
-	
-	const {user} = useContext(Context)
-	const PF = "http://localhost:5000/images/"
+
+	const { user } = useContext(Context);
+	const PF = "http://localhost:5000/images/";
 
 	useEffect(() => {
 		const getCategories = async () => {
@@ -20,17 +20,18 @@ export default function SideBar() {
 
 	return (
 		<div className="sidebar">
-			<div className="sidebarItem">
-				<span className="sidebarTitle">ABOUT ME</span>
-				<img
-					src={PF + user.profilePic}
-					alt=""
-				/>
-				<p>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-					Iusto in perferendis accusantium blanditiis sint dicta.
-				</p>
-			</div>
+			{user && (
+				<div className="sidebarItem">
+					<span className="sidebarTitle">ABOUT ME</span>
+					<img src={PF + user.profilePic} alt="" />
+					<p>
+						Lorem ipsum dolor sit amet consectetur, adipisicing
+						elit. Iusto in perferendis accusantium blanditiis sint
+						dicta.
+					</p>
+				</div>
+			)}
+
 			<div className="sidebarItem">
 				<span className="sidebarTitle">CATEGORIES</span>
 				<ul className="sidebarList">
