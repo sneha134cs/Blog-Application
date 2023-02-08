@@ -1,5 +1,5 @@
 import "./category.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ export default function Category({ category, mode }) {
 	const path = location.pathname.split("/")[2];
 
 	const [post, setPost] = useState({});
-	const [visible,setVisible] = useState(true)
+	const [visible, setVisible] = useState(true);
 
 	useEffect(() => {
 		const getPost = async () => {
@@ -19,7 +19,6 @@ export default function Category({ category, mode }) {
 	}, [path]);
 
 	const handleRemove = async () => {
-		
 		try {
 			await axios.put(`/posts/${post._id}`, {
 				username: post.username,
@@ -27,21 +26,25 @@ export default function Category({ category, mode }) {
 					(arrayItem) => arrayItem !== category
 				),
 			});
-			setVisible(false)
+			setVisible(false);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
 	return (
-		 visible && (<div className="category">
-			<span className="name">{category}</span>
-			{mode && (
-				<i
-					class="categoryRemove fa-solid fa-xmark"
-					onClick={handleRemove}
-				></i>
-			)}
-		</div>)
+		visible && (
+			<Link className="link" to={`/?category=${category}`}>
+				<div className="category">
+					<span className="name">{category}</span>
+					{mode && (
+						<i
+							class="categoryRemove fa-solid fa-xmark"
+							onClick={handleRemove}
+						></i>
+					)}
+				</div>
+			</Link>
+		)
 	);
 }
