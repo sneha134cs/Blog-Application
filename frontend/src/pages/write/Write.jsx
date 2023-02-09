@@ -29,6 +29,7 @@ export default function Write() {
 			title,
 			desc,
 			categories: selectedCat,
+			review: [],
 		};
 		if (file) {
 			const data = new FormData();
