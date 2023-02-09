@@ -1,0 +1,18 @@
+.star{
+    color: gold;
+    cursor: pointer;
+}
+
+.on{
+    border: none;
+    background-color: white;
+}
+
+.off{
+    border: none;
+    background-color: white;
+}
+
+.rating{
+    margin-left: 10px;
+}

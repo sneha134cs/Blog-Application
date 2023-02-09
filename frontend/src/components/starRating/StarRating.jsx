@@ -38,7 +38,8 @@ export default function StarRating({ post }) {
 				post.reviews.length;
 		}
 		setRate(total);
-	}, [rating]);
+		console.log(post.reviews);
+	}, [rating, post]);
 
 	return (
 		<div className="star-rating">
@@ -53,11 +54,11 @@ export default function StarRating({ post }) {
 						onMouseEnter={() => setHover(index)}
 						onMouseLeave={() => setHover(rating)}
 					>
-						<span className="star">&#9733;</span>
+						<i className="star fa-solid fa-star"></i>
 					</button>
 				);
 			})}
-			<span>{rate}</span>
+			<span className="rating">{rate}</span>
 		</div>
 	);
 }
