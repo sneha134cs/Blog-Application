@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import StarRating from "../starRating/StarRating";
 import "./post.css";
 
 export default function Post({ post }) {
@@ -26,6 +27,8 @@ export default function Post({ post }) {
 				<span className="postDate">
 					{new Date(post.createdAt).toDateString()}
 				</span>
+				<StarRating post={post} />
+
 				<Link className="link" to={`/?user=${post.username}`}>
 					<span className="postUser">{post.username}</span>
 				</Link>
