@@ -4,6 +4,7 @@ import "./singlePost.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
 import Categories from "../categories/Categories";
+import StarRating from "../starRating/StarRating";
 
 export default function SinglePost() {
 	const location = useLocation();
@@ -24,6 +25,7 @@ export default function SinglePost() {
 			setDesc(res.data.desc);
 		};
 		getPost();
+		console.log(post);
 	}, [path]);
 
 	const handleDelete = async () => {
@@ -58,6 +60,7 @@ export default function SinglePost() {
 				)}
 				<div className="categories">
 					<Categories post={post} mode={updateMode} />
+					<StarRating post={post} />
 				</div>
 				{updateMode ? (
 					<input
